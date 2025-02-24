@@ -4,7 +4,7 @@ const modelSchema = new mongoose.Schema (
     {
         name : String  ,
         linkFile : String ,
-        hotpots : {
+        hotspots : {
             type : Array,  
             default : [] , 
         } ,
