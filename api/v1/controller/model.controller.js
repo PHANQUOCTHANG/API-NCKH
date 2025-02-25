@@ -2,7 +2,7 @@ const Model = require("../../../model/model.model");
 const Hotspot = require("../../../model/hotspot.model");
 
 module.exports.index = async (req, res) => {
-  const models = await Model.find({ delete: false }).select("-__v");
+  const models = await Model.find({ delete: false }).select("-__v -hotpots");
   for (let model of models) {
     let newHotspot = [];
     const hotspots = model.hotspots;
@@ -21,11 +21,12 @@ module.exports.index = async (req, res) => {
 
 module.exports.detail = async (req, res) => {
   try {
-    const modelId = req.params.id;
+    const modelId = req.params.modelId;
     const model = await Model.findOne({
       delete: false,
       _id: modelId,
     });
+    res.json(model) ;
   } catch {
     console.log("detail error");
   }

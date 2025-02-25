@@ -4,6 +4,6 @@ const router =  express.Router() ;
 const controllerModel = require("../controller/model.controller") ;
 
 router.get("/" , controllerModel.index);
-router.get("/detail/:id" , controllerModel.detail) ;
+router.get("/detail/:modelId" , controllerModel.detail) ;
 
 module.exports = router ;
